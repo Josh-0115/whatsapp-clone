@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const connectDB = require("./config/db");
-const webhookRoutes = require("./routes/webhookroutes");
+const webhookRoutes = require("./routes/webhookRoutes");
 const http = require("http");
 
 const cors = require('cors');
