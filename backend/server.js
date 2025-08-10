@@ -6,12 +6,14 @@ const webhookRoutes = require("./routes/webhookRoutes");
 const http = require("http");
 
 const cors = require('cors');
+const app = express();
+
 app.use(cors({
   origin: ["http://localhost:5173", "https://your-frontend-domain.com"],
   methods: ["GET", "POST"]
 }));
 
-const app = express();
+
 connectDB();
 
 
