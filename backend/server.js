@@ -5,8 +5,18 @@ const webhookRoutes = require("./routes/webhookRoutes");
 const http = require("http");
 const cors = require('cors');
 const dotenv = require('dotenv');
-const path = require("path"); 
+const path = require("path");
+const Message = require("./models/Message");
 
+
+app.get("/messages", async (req, res) => {
+  try {
+    const messages = await Message.find().sort({ createdAt: 1 });
+    res.json(messages);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch messages" });
+  }
+});
 if (process.env.NODE_ENV !== 'production') {
   dotenv.config({ path: path.join(__dirname, '.env') });
 }
@@ -14,7 +24,10 @@ if (process.env.NODE_ENV !== 'production') {
 const app = express();
 
 app.use(cors({
-  origin: ["https://whatsapp-clone-p6xvzy997-sunny-joshs-projects.vercel.app"],
+  origin: [
+    "http://localhost:5173",
+    "https://whatsapp-clone-p6xvzy997-sunny-joshs-projects.vercel.app"
+  ],
   methods: ["GET", "POST"]
 }));
 
@@ -31,8 +44,10 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server, {
   cors: {
-    origin: ["https://whatsapp-clone-p6xvzy997-sunny-joshs-projects.vercel.app"],
-    methods: ["GET", "POST"]
+    origin: [
+      "http://localhost:5173",
+      "https://whatsapp-clone-p6xvzy997-sunny-joshs-projects.vercel.app"
+    ], methods: ["GET", "POST"]
   }
 });
 
@@ -44,6 +59,7 @@ app.use("/api/webhook", require("./routes/webhookRoutes"));
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
 
 // Optional: basic socket logging
 io.on("connection", (socket) => {
