@@ -14,7 +14,7 @@ if (process.env.NODE_ENV !== 'production') {
 const app = express();
 
 app.use(cors({
-  origin: ["https://whatsapp-clone.vercel.app", "http://localhost:5173"],
+  origin: ["https://whatsapp-clone-p6xvzy997-sunny-joshs-projects.vercel.app"],
   methods: ["GET", "POST"]
 }));
 
@@ -31,7 +31,7 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server, {
   cors: {
-    origin: ["https://whatsapp-clone.vercel.app", "http://localhost:5173"],
+    origin: ["https://whatsapp-clone-p6xvzy997-sunny-joshs-projects.vercel.app"],
     methods: ["GET", "POST"]
   }
 });

@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000', 
+export default axios.create({
+  baseURL: "https://whatsapp-clone-n6sr.onrender.com/api", // Render backend URL
 });
 
-export default API;

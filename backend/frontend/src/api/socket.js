@@ -1,10 +1,5 @@
 import { io } from "socket.io-client";
 
-const SOCKET_URL = "https://whatsapp-clone-n6sr.onrender.com/api";
+const SOCKET_URL = "https://whatsapp-clone-n6sr.onrender.com"; // Render backend URL
 
-const socket = io(SOCKET_URL, {
-  autoConnect: false, // connect manually
-  reconnectionAttempts: 5
-});
-
-export default socket;
+export const socket = io(SOCKET_URL);
