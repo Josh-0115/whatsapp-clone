@@ -4,8 +4,10 @@ const connectDB = require("./config/db");
 const webhookRoutes = require("./routes/webhookRoutes");
 const http = require("http");
 const cors = require('cors');
-const dotenv = require('dotenv'); // Add this line
-dotenv.config();
+const dotenv = require('dotenv');
+const path = require("path"); 
+
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 
@@ -46,8 +48,6 @@ io.on("connection", (socket) => {
   console.log("⚡️ Socket connected:", socket.id);
   socket.on("disconnect", () => console.log("🔌 Socket disconnected:", socket.id));
 });
-
-const path = require("path");
 
 // Serve frontend in production
 if (process.env.NODE_ENV === "production") {
