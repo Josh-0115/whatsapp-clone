@@ -5,7 +5,7 @@ const webhookRoutes = require("./routes/webhookRoutes");
 const http = require("http");
 const cors = require('cors');
 const dotenv = require('dotenv'); // Add this line
-dotenv.config({ path: path.join(__dirname, '.env') });
+dotenv.config();
 
 const app = express();
 
