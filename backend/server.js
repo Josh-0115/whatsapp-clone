@@ -5,7 +5,7 @@ const webhookRoutes = require("./routes/webhookRoutes");
 const http = require("http");
 const cors = require('cors');
 const dotenv = require('dotenv'); // Add this line
-dotenv.config();
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 
@@ -50,7 +50,7 @@ const path = require("path");
 
 // Serve frontend in production
 if (process.env.NODE_ENV === "production") {
-  const frontendPath = path.join(__dirname, "../frontend/dist");
+  const frontendPath = path.join(__dirname, "/frontend/dist");
   app.use(express.static(frontendPath));
 
   app.get("*", (req, res) => {
