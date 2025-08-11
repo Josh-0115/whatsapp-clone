@@ -35,7 +35,8 @@ const io = new Server(server, {
 // make io available to controllers via app.locals
 app.locals.io = io;
 
-app.use("/api/webhook", require("./routes/webhookRoutes"));
+// app.use("/api/webhook", require("./routes/webhookRoutes"));
+app.get("/test", (req, res) => res.send("Server is running"));
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
