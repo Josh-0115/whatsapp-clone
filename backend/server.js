@@ -12,7 +12,7 @@ dotenv.config({ path: path.join(__dirname, '.env') });
 const app = express();
 
 app.use(cors({
-  origin: ["https://whatsapp-clone-n6sr.onrender.com"],
+  origin: ["https://whatsapp-clone.vercel.app", "http://localhost:5173"],
   methods: ["GET", "POST"]
 }));
 
@@ -29,7 +29,7 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server, {
   cors: {
-    origin: ["https://whatsapp-clone-n6sr.onrender.com"], // frontend origin(s)
+    origin: ["https://whatsapp-clone.vercel.app", "http://localhost:5173"],
     methods: ["GET", "POST"]
   }
 });
