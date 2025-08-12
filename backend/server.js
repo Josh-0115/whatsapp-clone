@@ -19,7 +19,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://whatsapp-clone-p6xvzy997-sunny-joshs-projects.vercel.app"
+      "https://whatsapp-clone-ochre-ten.vercel.app/"
     ],
     methods: ["GET", "POST"]
   })
@@ -49,7 +49,7 @@ const io = new Server(server, {
   cors: {
     origin: [
       "http://localhost:5173",
-      "https://whatsapp-clone-p6xvzy997-sunny-joshs-projects.vercel.app"
+      "https://whatsapp-clone-ochre-ten.vercel.app/"
     ],
     methods: ["GET", "POST"]
   }
